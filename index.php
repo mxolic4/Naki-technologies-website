@@ -156,6 +156,45 @@
                                     
                             </form>
 							<div class="status">
+								
+			<?php
+							if(isset($_POST['submit']))
+							{
+								$user_name = $_POST['name'];
+								$user_email = $_POST['email'];
+								$user_message = $_POST['message'];
+								
+								$email_from = 'noreply@NakiTech.com';
+								$email_subject = 'New Form Submission';
+								$email_body = "Name: $user_name.\n".
+											  "Email Id: $user_email.\n".
+											  "Email Message: $user_message.\n";
+											  
+								$to_email = "mxolic4@gmail.com";
+								$headers = "From: $email_from \r\n";
+								$headers .= "Reply-To: $user_email\r\n";
+								
+								$secreteKey = "6LfHwNIUAAAAAPMrXb2CDuzFi_mTkJS7Y35FI0jx";
+								$responseKey = $_POST["g-recaptcha-response"];
+							
+								$url = "https://www.google.com/recaptcha/api/siteverify?secret=$secreteKey&response=$responseKey";
+								
+								$response = file_get_contents($url);
+								$response = json_decode($response);
+								
+								if ($response->success)
+								{
+									mail($to_email,$email_subject,$email_body,$headers);
+									echo "Message Sent Successfully";
+								}
+								else
+								{
+									echo "<span>invalid Captcha, Please Try Again</span>";
+								
+								}
+							}	
+								
+							?>	
 							
 								</div>
                         </div>
