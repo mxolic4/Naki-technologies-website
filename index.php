@@ -111,12 +111,12 @@
                                 <div id="phone-fax-email">
                                     <p>
                                         <strong>Phone:
-                                        <span>0815908833</span><br>
+                                        <span></span><br>
                                         </strong>
                                         
                                         
                                         <strong>Email:
-                                        <span>info@nakitechnologies.co.za</span><br>
+                                        <span></span><br>
                                         </strong>
                 
                                     </p>
@@ -151,7 +151,7 @@
                                 <input type="text" name="email" placeholder="Email Address" class="form-control" required>
                                 
                                 <textarea name="message" placeholder="message.." rows="5" class="form-control" required></textarea>
-                                <div class="g-recaptcha" data-sitekey="6LfBid0UAAAAAHkji7GerOolRGXJ-EFiUK1NeZP4"></div>
+                                <div class="g-recaptcha" data-sitekey=""></div>
                                 <input type="submit" name="submit" value="Send Message" class="submit-btn">
                                     
                             </form>
@@ -170,11 +170,11 @@
 											  "Email Id: $user_email.\n".
 											  "Email Message: $user_message.\n";
 											  
-								$to_email = "mxolic4@gmail.com";
+								$to_email = "";
 								$headers = "From: $email_from \r\n";
 								$headers .= "Reply-To: $user_email\r\n";
 								
-								$secreteKey = "6LfHwNIUAAAAAPMrXb2CDuzFi_mTkJS7Y35FI0jx";
+								$secreteKey = "";
 								$responseKey = $_POST["g-recaptcha-response"];
 							
 								$url = "https://www.google.com/recaptcha/api/siteverify?secret=$secreteKey&response=$responseKey";
